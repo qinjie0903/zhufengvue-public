@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--只绑定一次内容，数据再次变化后，不会导致视图更新-->
+    <div v-once>{{msg}}</div>
+    <!--默认渲染html，自动转化为识别后的结果-->
+    <div v-html="msg2"></div>
+    <input type="text" v-model="msg">
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'test',
+            msg2:'<h1>I am news.</h1>'
+        }
+    })
+</script>
+</body>
+</html>

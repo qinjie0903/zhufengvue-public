@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <!--v-for是一个比较常用的指令，要循环谁，就把v-for写在谁的身上-->
+    <ul>
+        <!--in 或者of都可以-->
+        <li v-for="fruit in fruits">{{fruit}}</li>
+        <li v-for="(fruit,index) in fruits">{{index}}{{fruit}}</li>
+    </ul>
+
+<!--循环二维数组-->
+    <ul>
+        <li v-for="fruit2 in fruits2">
+            {{fruit2.name}}
+            <ul>
+                <li v-for="t in fruit2.type">
+                    {{t}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <!--循环对象(val,key) in waterLon-->
+    <ul>
+        <li v-for="val in waterLon">{{val}}
+        </li>
+
+    </ul>
+
+
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    /*forEach; for; for of*/
+    /*let arrs=[1,2,3];
+    for(let val of arrs){
+        console.log(val);
+    }*/
+    /*forEach((item.index)=>{})*/
+
+    let vm = new Vue({
+       el:'#app',
+        data:{
+            fruits:['apple','banana','orange'],
+            fruits2:[{name:'ap',type:['green','red']}],
+            waterLon:{sweet:"sweetie",color:"red"}
+        }
+    });
+</script>
+</body>
+</html>
